@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu1404"
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 256
+  end
+
+  config.vm.provision "shell", 
+    inline: "apt-get update"
+  config.vm.provision "shell", 
+    inline: "apt-get install -y syslog-ng syslog-ng-core"
+  config.vm.provision "shell", 
+    inline: "ntpdate zeit.fu-berlin.de"
+    
+
+  config.vm.define "app1" do |app1|
+    app1.vm.network "private_network", ip: "192.168.50.5"
+    app1.vm.hostname = "app1"
+  end
+
+  config.vm.define "app2" do |app2|
+    app2.vm.network "private_network", ip: "192.168.50.6"
+    app2.vm.hostname = "app2"
+  end
+
+  config.vm.define "web1" do |web1|
+    web1.vm.network "private_network", ip: "192.168.50.7"
+    web1.vm.hostname = "web1"
+  end
+
+  config.vm.define "log1" do |log1|
+    log1.vm.network "private_network", ip: "192.168.50.8"
+    log1.vm.hostname = "log1"
+  end
+
+
+end

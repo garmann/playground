@@ -1,0 +1,44 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu1404"
+
+
+   config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update
+     sudo debconf-set-selections <<< 'mysql-server-5.6 mysql-server/root_password password x'
+     sudo debconf-set-selections <<< 'mysql-server-5.6 mysql-server/root_password_again password x'
+     echo "installing mysql-server"
+     sudo apt-get install -y mysql-server-5.6
+     echo "setting up db"
+     sudo bash /vagrant/res/create_db.sh
+     echo "installing pip3"
+     sudo apt-get install -y python3-pip
+     echo "installing pip3 requirements"
+     sudo pip3 install -r /vagrant/requirements.txt
+   SHELL
+
+  config.vm.define "db1" do |db1|
+    db1.vm.network "private_network", ip: "192.168.50.2"
+    db1.vm.hostname = "db1"
+  end
+
+  # config.vm.define "create1" do |create1|
+  #   create1.vm.network "private_network", ip: "192.168.50.5"
+  #   create1.vm.hostname = "create1"
+  # end
+
+  # config.vm.define "update1" do |update1|
+  #   update1.vm.network "private_network", ip: "192.168.50.6"
+  #   update1.vm.hostname = "update1"
+  # end
+
+  # config.vm.define "finish1" do |finish1|
+  #   finish1.vm.network "private_network", ip: "192.168.50.7"
+  #   finish1.vm.hostname = "finish1"
+  # end
+
+
+end
