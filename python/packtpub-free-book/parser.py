@@ -24,7 +24,7 @@ def soup_object(url):
 
 
 def parse_title(soup):
-    """parses title of soup object
+    """parses title of the book
 
     Args:
         soup - object: the soup object to parse
@@ -39,6 +39,7 @@ def parse_title(soup):
         raise Exception('problem with parsing')
     else:
         return title
+
 
 def parse_picture_url(soup):
     """parses url of book image and some minor changes to the string
@@ -61,16 +62,16 @@ def parse_picture_url(soup):
         return pic
 
 
-def parse_more_info(soup, title):
-    """parses more informations about book
+def parse_description(soup, title):
+    """parses description of the book
 
     Args:
         soup - object: the soup object to parse
-        title - string: string version of book title
+        title - string: book title
     Returns:
-        info - list: list of lines found with more informations
+        info - list: the description of the book
     Raises:
-        raises none: if no informations are found, just continue
+        raises nothing: if no description is found, just continue
     """
     try:
         info = []
@@ -103,8 +104,8 @@ def main():
 
     print('title:', parse_title(soup))
     print('imageurl:', parse_picture_url(soup))
-    print('additional informations:...')
-    for line in parse_more_info(soup, parse_title(soup)): print(line)
+    print('description:...')
+    for line in parse_description(soup, parse_title(soup)): print(line)
     print('url:', return_url(url))
 
 
