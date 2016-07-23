@@ -88,6 +88,13 @@ def parse_more_info(soup, title):
         return info
 
 
+def return_url(url):
+    """ returns url string
+    this function will be used by a chatbot
+    """
+    return url
+
+
 def main():
     """handles site parsing of the packtpub site for free ebooks and prints all informations
     """
@@ -98,6 +105,7 @@ def main():
     print('imageurl:', parse_picture_url(soup))
     print('additional informations:...')
     for line in parse_more_info(soup, parse_title(soup)): print(line)
+    print('url:', return_url(url))
 
 
 if __name__ == '__main__':
