@@ -1,0 +1,363 @@
+/*  
+
+http://getbootstrap.com/customize/?id=97b02bb10bf905cf3a13af2659e15c24
+
+colors
+orange: #e15e30;
+red-orange: #822808;
+green: #2bb0b2;
+
+font-family: 'Open Sans', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+
+*/
+
+
+/*
+typo
+*/
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+/*
+basic styles
+*/
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+section {
+    padding: 52px 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 64px;
+}
+
+section .section-lead {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+
+
+/*
+navigation
+*/
+.main-navigation {
+    background: #e15e30;
+}
+
+.main-navigation .logo {
+    display: block;
+    float: left;
+    margin: 30px 0 35px;
+}
+
+.main-navigation ul {
+    list-style-type: none;
+    padding-left: 0; 
+    margin: 14px 0;
+}
+
+.main-navigation ul li {
+
+}
+
+.main-navigation ul a {
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 1em;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+/*
+taglines
+*/
+
+.tagline {
+    background:url(../img/desert.jpg) center center no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 721px;
+    padding-top: 206px;
+}
+
+.tagline-main {
+    height: 821px;
+    padding-top: 224px;
+    background-image:url(../img/camels.jpg);
+}
+
+.tagline-contact {
+    background-image:url(../img/city.jpg);
+}
+
+.tagline-wrap {
+    text-align: left;
+    display: inline-block;
+}
+
+.tagline .mini-tag {
+    color: #822808;
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1em;
+    padding-left: 15px;
+}
+
+.tagline .maxi-tag {
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 144px;
+    line-height: 150px;
+}
+
+.tagline-main .maxi-tag {
+    font-size: 288px;
+    color: #e15e30;
+    line-height: 1em;
+}
+
+/*
+teaser
+*/
+.teaser {
+    background: #e15e30;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding: 32px 0 60px;
+}
+
+.teaser h3 {
+    font-size: 48px;
+    text-transform: uppercase;
+}
+
+/*
+details
+*/
+
+.details {
+    text-align: center;
+}
+
+.details h2, .details h3 {
+    color: #2bb0b2;
+}
+
+.details img {
+    max-height: 140px;
+    width: auto;
+    margin: 58px auto;
+
+}
+
+/*
+videos
+*/
+.videos p.section-lead {
+        margin-bottom: 90px;
+}
+
+.videos h2, .videos h3 {
+    color: #2bb0b2;
+}
+
+.videos p {
+    margin-bottom: 44px;
+}
+
+.videos .embed-responsive {
+    margin-top: 22px;
+}
+
+/*
+adventures
+*/
+
+.adventures {
+    color: white;
+    background: #e15e30;
+}
+
+.adventures-places {
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    float: left;
+    margin-right: 24px;
+}
+
+.adventures hr {
+    border-top: 1px solid white; 
+    margin-top: 30px;
+}
+
+.place {
+    margin-bottom:40px;
+}
+
+
+/*
+footer
+*/
+
+.main-footer {
+    background: #e15e30;
+    color: white;
+    font-size: 20px;
+}
+
+.main-footer .copyright {
+    float: left;
+    
+    margin-top: 60px;
+}
+
+.main-footer img {
+    height: 80px;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.main-footer ul {
+    list-style-type: none;
+    float: right;
+}
+
+.main-footer ul li {
+    float: left;
+}
+
+
+/* 
+
+slider 
+
+*/
+
+.tagline-main, .tagline-wrap {
+    position: relative;
+}
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+#slider{
+  position: relative;
+  left:0;
+  width: 300%;
+  height: 100%;
+  left:0;
+  transition: left 500ms ease-in;
+}
+
+.slide {
+  position: absolute;
+  top:0;
+  width:33.33%;
+  height:100%;
+  background-size:cover;
+}
+
+#slide1{
+  left:0;
+  background-image:url(../img/desert.jpg);
+}
+
+#slide2{
+  left:33.33%;
+  background-image:url(../img/camels.jpg);
+}
+
+#slide3{
+  left:66.66%;
+  background-image:url(../img/city.jpg);
+}
+
+
+.slider-nav {
+    position: absolute;
+    top:50%;
+    height: 50px;
+    width: 50p;
+    font-size: 40px;
+    color:white;
+    text-decoration:none;
+    display: block;
+}
+
+.slider-nav:hover, .slider-nav:active, .slider-nav:focus {
+    color:white;
+    text-decoration: none;
+}
+
+#prev {
+    left: 10px;
+}
+
+
+#next {
+    right: 10px;
+}
+/*
+
+responve nav
+
+*/
+
+.navbar-toggle {
+    margin-top: 35px;
+    margin-right: 0;
+    padding: 0;
+}
+
+.navbar-toggle .icon-bar {
+    background:white;
+    height: 3px;
+}
+
+.navbar-collapse {
+    padding: 0;
+    clear:both;
+}
+
+
+@media(min-width: 768px){
+    .main-navigation ul {
+        float:right;
+        list-style-type: none;
+        margin:40px 0;
+    }
+    .main-navigation ul li {
+        float:left;
+    }
+    .navbar-collapse.collapse {
+        clear:none;
+    }
+}
