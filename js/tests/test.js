@@ -32,7 +32,7 @@ var fra = new Person('Franzi', 45, 0);
 var mop = new Person('Moppi', 12, 3);
 var rau = new Person('Raupe', 55, 0);
 
-var actors = [leo, jen, sam, mer, joh];
+var actors = [pau, pie, fra, mop, rau];
 
 /*
 
