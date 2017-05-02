@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var con = mysql.createConnection({
-  host: '192.168.178.60',
+  host: '0.0.0.0',
   user: 'root',
   password: 'x'
 });
@@ -17,7 +17,7 @@ con.connect(function(err){
 con.query('SHOW PROCESSLIST', function(err, results, fields){
   if (err) throw err;
   console.log(0, results);
-  console.log(1, fields);
+  //console.log(1, fields);
 
 });
 
