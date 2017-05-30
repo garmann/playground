@@ -9,7 +9,7 @@ exports.getVisitorName = function(url, cb){
   this is my exported function :-)
 
   usage:
-  - right click on the persons image in the visistors pane
+  - right click on the persons image in the visitors pane
   - copy image address
   - run this function with copy data (url)
 
@@ -27,17 +27,17 @@ exports.getVisitorName = function(url, cb){
   }
 
   if (url.startsWith('https://www.xing.com/img/users/') === false || url.endsWith('.jpg') === false){
-    return cb('no valid input');
+    return cb(new Error('no valid input'));
   }
 
   const xing_url = 'https://www.xing.com/events/widgets/organized/'
 
   let pos_begin_userid = url.indexOf('.', 17) + 1;
   let pos_end_userid = url.indexOf(',', 17);
-  let visitor_userid = parseInt(url.substring(pos_begin_userid, pos_end_userid))
+  let visitor_userid = Number(url.substring(pos_begin_userid, pos_end_userid))
 
   if (Number.isInteger(visitor_userid) === false) {
-    return cb(new Error('cloud not parse userid from visistor'));
+    return cb(new Error('cloud not parse userid from visitor'));
   }
 
   let eventsPageUrl = xing_url + visitor_userid
