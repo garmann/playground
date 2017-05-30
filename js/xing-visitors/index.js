@@ -27,7 +27,7 @@ exports.getVisitorName = function(url, cb){
   }
 
   if (url.startsWith('https://www.xing.com/img/users/') === false || url.endsWith('.jpg') === false){
-    cb(1, 'no valid input');
+    return cb('no valid input');
   }
 
   const xing_url = 'https://www.xing.com/events/widgets/organized/'
@@ -37,7 +37,7 @@ exports.getVisitorName = function(url, cb){
   let visitor_userid = parseInt(url.substring(pos_begin_userid, pos_end_userid))
 
   if (Number.isInteger(visitor_userid) === false) {
-    cb(new Error('cloud not parse userid from visistor'));
+    return cb(new Error('cloud not parse userid from visistor'));
   }
 
   let eventsPageUrl = xing_url + visitor_userid
@@ -45,7 +45,7 @@ exports.getVisitorName = function(url, cb){
   console.log('DEBUG: eventsPageUrl: ', eventsPageUrl);
 
   request(eventsPageUrl, function(error, response, body){
-    if (error) cb(new Error(error));
+    if (error) return cb(new Error(error));
 
     let $ = cheerio.load(body);
     let title = $('head title').text();
@@ -53,9 +53,9 @@ exports.getVisitorName = function(url, cb){
     let pos_end = title.indexOf('|') - 1;
 
     if (typeof title === 'string'){
-      cb(null, title.substring(pos_start, pos_end));
+      return cb(null, title.substring(pos_start, pos_end));
     } else {
-      cb(new Error('cloud not parse name'));
+      return cb(new Error('cloud not parse name'));
     }
     
   });
