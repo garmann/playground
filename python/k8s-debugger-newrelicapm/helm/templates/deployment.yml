@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+    group: {{ .Release.Name }}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      name: {{ .Release.Name }}
+      labels:
+        app: {{ .Release.Name }}
+        group: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: "50Mi"
+          limits:
+            cpu: "1"
+            memory: "250Mi"
+        image: {{ .Values.dockerimagename }}
+        env:
+        - name: NEW_RELIC_APP_NAME
+          value: {{ .Release.Name }}
+        - name: NEW_RELIC_LICENSE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}
+              key: newrelic_license_key
+        imagePullPolicy: Always
+        securityContext:
+          privileged: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 10

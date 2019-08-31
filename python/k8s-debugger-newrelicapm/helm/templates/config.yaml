@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+data:
+  newrelic_appname: {{ .Release.Name }}
+  target_url: {{ .Values.target_url  }}
+  sleep_seconds: {{ .Values.sleep_seconds }}
+  request_amount: {{ .Values.request_amount  }}

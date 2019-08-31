@@ -1,0 +1,10 @@
+dockerimagename: null
+cluster-name: null
+cluster_name_short: null
+cluster_domain_public: null
+newrelic_license_key: null
+
+aurora_configmap_name: null
+aurora_secret_name: null
+aurora_yaml_key_cluster_endpoint: null
+aurora_yaml_key_master_password: null
