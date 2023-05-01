@@ -1,6 +1,6 @@
-click==6.6
+click
 Flask
-itsdangerous==0.24
-Jinja2==2.11.3
-MarkupSafe==0.23
-Werkzeug==2.2.3
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
