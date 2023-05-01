@@ -1,2 +1,2 @@
-progressbar2==3.6.0
-wheel==0.38.1
+progressbar2
+wheel
