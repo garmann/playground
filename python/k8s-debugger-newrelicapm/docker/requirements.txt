@@ -1,6 +1,6 @@
-certifi==2022.12.7
-chardet==3.0.4
-newrelic==4.20.0.120
-requests==2.20.0
-urllib3==1.26.5
-Werkzeug==2.2.3
+certifi
+chardet
+newrelic
+requests
+urllib3
+Werkzeug
